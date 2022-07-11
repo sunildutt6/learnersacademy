@@ -1,0 +1,54 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: white;
+}
+
+h1, h3, legend {
+	margin: .5em 0;
+	text-transform: capitalize;
+}
+
+.navigation {
+	width: 600px;
+	display: flex;
+	justify-content: space-around;
+	flex: 1;
+}
+
+.navigation>a {
+	text-transform: capitalize;
+	text-decoration: none;
+	display: inline-block;
+	margin: 5px;
+	padding: 2px;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+form {
+	width: 500px;
+}
+
+fieldset {
+	display: flex;
+	flex-direction: column;
+	margin: 1rem;
+}
+
+label {
+	margin-bottom: .5rem;
+}
+
+input {
+	padding: .25rem;
+}
+
+table,td,th {
+	border: 2px solid black;
+	padding: 10px
+}
