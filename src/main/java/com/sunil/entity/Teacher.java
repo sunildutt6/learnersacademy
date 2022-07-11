@@ -6,6 +6,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -32,10 +33,10 @@ public class Teacher {
 	@Embedded
 	private PhoneNumber phonenumber;
 
-	@OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Classes> classes;
 
-	@OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Subjects> subjects;
 
 	public int getId() {
@@ -99,8 +100,14 @@ public class Teacher {
 		this.classes = classes;
 	}
 
-	public List<Subjects> getSubjects() {
-		return subjects;
+	public String getSubjects() {
+		StringBuilder sb = new StringBuilder();
+		if (subjects != null && subjects.size() > 0) {
+			for (Subjects s : subjects) {
+				sb.append(s.getName());
+			}
+		}
+		return sb.toString();
 	}
 
 	public void setSubjects(List<Subjects> subjects) {

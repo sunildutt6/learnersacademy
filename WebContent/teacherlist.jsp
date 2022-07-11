@@ -17,8 +17,7 @@
 	<h1>teacher list</h1>
 
 	<%
-		
-	List<Teacher> teachers= TeacherDao.listTeacher();
+	List<Teacher> teachers = TeacherDao.listTeacher();
 	request.setAttribute("teacherlist", teachers);
 	%>
 
@@ -43,8 +42,7 @@
 				<td>${tec.getAddress()}</td>
 				<td>${tec.getPhonenumber()}</td>
 				<td>${tec.getClasses()}</td>
-				
-				
+				<td>${tec.getSubjects()}</td>
 
 
 

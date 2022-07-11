@@ -11,28 +11,28 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="class_072022")
+@Table(name = "class_072022")
 public class Classes {
 
 	@Id
 	@GeneratedValue
-	@Column(name="c_id")
+	@Column(name = "c_id")
 	private int id;
-	
-	@Column(name="c_name")
+
+	@Column(name = "c_name")
 	private String name;
-	
-	@Column(name="c_type")
+
+	@Column(name = "c_type")
 	private String type;
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
 	private Student student;
-	
+
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name ="t_id")
+	@JoinColumn(name = "t_id")
 	private Teacher teacher;
 
-	//getters and setters
+	// getters and setters
 	public int getId() {
 		return id;
 	}
@@ -42,9 +42,6 @@ public class Classes {
 	}
 
 	public String getName() {
-		if(name == null) {
-			return " ";
-		}else
 		return name;
 	}
 
@@ -53,10 +50,10 @@ public class Classes {
 	}
 
 	public String getType() {
-		if(type == null) {
+		if (type == null) {
 			return " ";
-		}else {
-		return type;
+		} else {
+			return type;
 		}
 	}
 
@@ -79,8 +76,5 @@ public class Classes {
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
 	}
-	
-	
-	
-	
+
 }
